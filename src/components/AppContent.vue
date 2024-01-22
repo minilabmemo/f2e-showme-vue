@@ -72,10 +72,10 @@
             ></path>
           </clipPath>
         </svg>
+        <div class="h-[100px] bg-blue-250"></div>
       </div>
       <div
         class="font-semibold text-blue-150 relative -translate-x-4 h-[300px]"
-        @click="() => setNewsModal(!newsModal)"
       >
         <div
           class="text-[24px] md:text-[32px] absolute top-0 px-[30px] z-10 flex flex-col justify-center items-start w-[1091px] h-[230px] gap1 md:gap-3"

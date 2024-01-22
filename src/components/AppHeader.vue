@@ -1,7 +1,7 @@
 <template>
   <div class="flex items-center h-[135px]">
     <header
-      ref="{hRef}"
+      ref="hRef"
       class="transition-[height] fixed top-0 left-1/2 -translate-x-1/2 z-10 w-full max-w-screen-3xl flex items-center justify-between px-[60px] bg-white text-blue-150 font-semibold fill-white drop-shadow-default"
     >
       <div class="logo w-[142px]">
@@ -48,4 +48,31 @@ export default defineComponent({
   },
 });
 </script>
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref, onMounted, onUnmounted } from "vue";
+
+const hRef = ref(null);
+
+const handleScroll = () => {
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  if (scrollY > 100) {
+    if (hRef.value) {
+      hRef.value.style.transition = ".5s";
+      hRef.value.style.height = "100px";
+    }
+  } else {
+    if (hRef.value) {
+      hRef.value.style.transition = "0s";
+      hRef.value.style.height = "135px";
+    }
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("scroll", handleScroll);
+});
+
+onUnmounted(() => {
+  window.removeEventListener("scroll", handleScroll);
+});
+</script>

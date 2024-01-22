@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1 :class="titleClass">{{ msg }}</h1>
+    <h1 class="text-red-500">Make me red</h1>
     <p>counter {{ counter }}</p>
     <button @click="plus">點選讓數字加一</button>
   </div>

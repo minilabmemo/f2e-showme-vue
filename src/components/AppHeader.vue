@@ -21,6 +21,12 @@
               class="w-0 group-hover:w-full transition-[width] duration-1000 ease-in-out bg-red-100 h-[5px]"
             ></div>
           </li>
+          <li class="group mx-5">
+            <a href="#news">最新活動</a>
+            <div
+              class="w-0 group-hover:w-full transition-[width] duration-1000 ease-in-out bg-red-100 h-[5px]"
+            ></div>
+          </li>
           <!-- <NavLink href={'#about'} text={'關於薩卡'} animate={true}></NavLink>
             <NavLink href={'#policies'} text={'政策議題'} animate={true}></NavLink>
             <NavLink href={'#news'} text={'最新活動'} animate={true}></NavLink>

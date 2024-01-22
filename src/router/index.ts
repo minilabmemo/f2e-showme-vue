@@ -8,13 +8,16 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
-    path: "/about",
-    name: "about",
+    path: "/meowsakka",
+    name: "meowsakka",
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "meowsakka" */ "../views/AboutView.vue"),
+    meta: {
+      hideNav: true, // 添加這個 meta 選項
+    },
   },
 ];
 

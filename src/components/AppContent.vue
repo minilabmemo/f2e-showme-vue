@@ -87,15 +87,18 @@
     <section
       id="services"
       class="h-[1080px] flex flex-col justify-center px-[63px] py-[177px]"
-      ref="{refService}"
+      ref="targetService"
     >
       <Title text="民眾服務信箱"></Title>
 
       <div class="flex flex-col items-center py-[177px] relative">
         <div class="w-[1328px] h-[493px] absolute top-0 left-0">
-          <img :src="plane_path" alt="plane_path" class="" />
+          <img :src="plane_path" alt="plane_path" />
         </div>
-        <div class="w-[226px] h-[111px] absolute plane top-0 left-0">
+        <div
+          class="w-[226px] h-[111px] absolute plane top-0 left-0"
+          :class="{ fly: ttargetServiceIsVisible }"
+        >
           <img :src="plane" alt="plane" />
         </div>
         <div
@@ -205,7 +208,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 
 // import NewsModal from './NewsModal.vue'; // 這裡假設 NewsModal 組件的路徑正確
@@ -223,26 +226,26 @@ import plane_path from "@/assets/images/plane_path.svg";
 const aboutModal = ref(false);
 const newsModal = ref(false);
 const title = ref(newsData[0].title);
-
 function updateTitle(newTitle) {
   title.value = newTitle;
 }
 import OpenModal from "@/components/OpenModal.vue";
 
-// 使用 ref 定義狀態
 const isModalVisible = ref(false);
-
-// 定義 toggleModal 方法
 const toggleModal = () => {
   isModalVisible.value = !isModalVisible.value;
-  console.log(
-    "🚀 ~ toggleModal ~  isModalVisible.value:",
-    isModalVisible.value
-  );
 };
-
-// 定義 closeModal 方法
 const closeModal = () => {
   isModalVisible.value = false;
 };
+
+import { useIntersectionObserver } from "@vueuse/core";
+const targetService = ref(null);
+const ttargetServiceIsVisible = ref(false);
+const { stop } = useIntersectionObserver(
+  targetService,
+  ([{ isIntersecting }], observerElement) => {
+    ttargetServiceIsVisible.value = isIntersecting;
+  }
+);
 </script>

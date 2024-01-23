@@ -19,7 +19,7 @@
     :slides-per-group="1"
     :space-between="10"
     :loop="true"
-    :autoplay="{ delay: 2500, disableOnInteraction: true }"
+    :autoplay="{ delay: 3000, disableOnInteraction: true }"
     :modules="modules"
     @swiper="onSwiper"
     @slideChange="onSlideChange"

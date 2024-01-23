@@ -24,6 +24,7 @@
         <section>
           <h1 class="">作品集</h1>
           <router-link to="/meowsakka">f2e-election-meowsakka</router-link>
+          <router-link to="/hello">hello</router-link>
         </section>
       </div>
     </div>

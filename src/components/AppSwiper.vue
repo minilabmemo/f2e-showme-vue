@@ -14,10 +14,12 @@
     </clipPath>
   </svg>
   <swiper
-    :width="900"
-    :slides-per-view="3"
+    :width="1200"
+    :slides-per-view="4"
+    :slides-per-group="1"
     :space-between="10"
     :loop="true"
+    :autoplay="{ delay: 2500, disableOnInteraction: true }"
     :modules="modules"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
@@ -25,7 +27,7 @@
     <swiper-slide v-for="(item, index) in newsData" :key="index">
       <div
         class="drop-shadow-[6px_6px_2px_rgba(61,61,61,0.7)] my-10 hover:scale-[1.1] w-[420px]"
-        @mousemove="() => onMouseMove(value, index)"
+        @mousemove="() => onMouseMove(item, index)"
       >
         <img
           v-if="item"
@@ -44,22 +46,24 @@
 <script>
 import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/vue";
-//:autoplay="{ delay: 2500, disableOnInteraction: true }"
+
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 export default {
   props: {
     newsData: {
       type: Array,
       required: false,
     },
+    title: String,
   },
   components: {
     Swiper,
     SwiperSlide,
   },
-  setup() {
+  setup(props, context) {
     const onSwiper = (swiper) => {
       // console.log(swiper);
     };
@@ -67,7 +71,7 @@ export default {
       // console.log("slide change");
     };
     const onMouseMove = (v, i) => {
-      console.log("v,i", v, i);
+      context.emit("updateTitle", v.title);
     };
     return {
       onSwiper,
@@ -78,10 +82,3 @@ export default {
   },
 };
 </script>
-<!-- <style>
-.swiper-container {
-  max-width: 600px !important; /* 設定 container 的最大寬度 */
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-</style> -->

@@ -55,24 +55,11 @@
       <div
         class="carousel-bg rotate-[15deg] overflow-hidden self-center w-[120vw]"
       >
-        <svg class="svg w-0 h-0">
-          <clipPath id="triangle-path" clipPathUnits="objectBoundingBox">
-            <path
-              d="M0.496,0.991 C0.502,1,0.515,1,0.521,0.991 L1,0.029 C1,0.016,1,0,0.989,0 H0.019 C0.007,0,0,0.016,0.006,0.029 L0.496,0.991"
-            ></path>
-          </clipPath>
-        </svg>
-        <svg class="svg w-0 h-0">
-          <clipPath
-            id="triangle-path-reverse"
-            clipPathUnits="objectBoundingBox"
-          >
-            <path
-              d="M0.006,0.977 C0,0.989,0.007,1,0.019,1 L0.989,1 C1,1,1,0.988,1,0.977 L0.512,0.012 C0.507,0,0.492,0,0.486,0.012 L0.006,0.977"
-            ></path>
-          </clipPath>
-        </svg>
-        <div class="h-[100px] bg-blue-250"></div>
+        <AppSwiper
+          :newsData="newsData"
+          :title="title"
+          @updateTitle="updateTitle"
+        />
       </div>
       <div
         class="font-semibold text-blue-150 relative -translate-x-4 h-[300px]"
@@ -217,6 +204,7 @@ import { ref } from "vue";
 // import NewsModal from './NewsModal.vue'; // 這裡假設 NewsModal 組件的路徑正確
 // import Title from './Title.vue'; // 這裡假設 Title 組件的路徑正確
 // import Slider from "vue-slick"; // 這裡假設你已經安裝了 vue-slick
+import AppSwiper from "@/components/AppSwiper.vue";
 import { newsData } from "@/utils/newsData.ts";
 import BG from "@/assets/images/BG_top.png";
 import banner from "@/assets/images/banner_click.png";
@@ -227,6 +215,9 @@ const aboutModal = ref(false);
 const newsModal = ref(false);
 const title = ref(newsData[0].title);
 
+function updateTitle(newTitle) {
+  title.value = newTitle;
+}
 import OpenModal from "@/components/OpenModal.vue";
 
 // 使用 ref 定義狀態

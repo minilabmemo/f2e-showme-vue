@@ -1,6 +1,6 @@
 <template>
   <div class="overflow-hidden" :style="{ backgroundImage: `url(${BG})` }">
-    <section id="about" @click="toggleModal">
+    <section id="about" @click="toggleAboutModal">
       <div class="relative">
         <img :src="banner" alt="banner" />
       </div>
@@ -70,6 +70,7 @@
           {{ title }}
           <button
             class="bg-blue-150 rounded-[30px] py-[1px] px-[21px] self-start md:self-center md:ml-[50px]"
+            @click="toggleNewsModal"
           >
             <span
               class="text-xl md:text-2xl leading-[40px] font-semibold text-white"
@@ -117,7 +118,7 @@
       </div>
     </section>
 
-    <OpenModal :visible="isModalVisible" @closeModal="closeModal">
+    <AppModal v-if="isAboutModalVisible" @closeModal="closeAboutModal">
       <div class="scroll-bar-no-show overflow-y-auto h-full">
         <div class="flex flex-col items-center">
           <h1 class="text-[32px] md:text-[48px] font-semibold text-blue-250">
@@ -198,13 +199,9 @@
           </div>
         </div>
       </div>
-    </OpenModal>
-    <!-- <Modal v-if="aboutModal" SetModal="setAboutModal">
+    </AppModal>
 
-      <div>123</div>
-    </Modal>
-
-    <NewsModal v-if="newsModal" setNewsModal="setNewsModal" /> -->
+    <NewsModal v-if="isNewsModalVisible" @closeModal="closeNewsModal" />
   </div>
 </template>
 
@@ -223,20 +220,31 @@ import about_sakka from "@/assets/images/about_sakka.png";
 import sakka_detail from "@/assets/images/sakka_detail.png";
 import plane from "@/assets/images/plane.png";
 import plane_path from "@/assets/images/plane_path.svg";
-const aboutModal = ref(false);
-const newsModal = ref(false);
+
 const title = ref(newsData[0].title);
 function updateTitle(newTitle) {
   title.value = newTitle;
 }
-import OpenModal from "@/components/OpenModal.vue";
-
-const isModalVisible = ref(false);
-const toggleModal = () => {
-  isModalVisible.value = !isModalVisible.value;
+import AppModal from "@/components/AppModal.vue";
+import NewsModal from "@/components/NewsModal.vue";
+const isAboutModalVisible = ref(false);
+const toggleAboutModal = () => {
+  isAboutModalVisible.value = !isAboutModalVisible.value;
+  console.log(
+    "🚀 ~ toggleAboutModal ~  isAboutModalVisible.value :",
+    isAboutModalVisible.value
+  );
 };
-const closeModal = () => {
-  isModalVisible.value = false;
+const closeAboutModal = () => {
+  isAboutModalVisible.value = false;
+};
+
+const isNewsModalVisible = ref(false);
+const toggleNewsModal = () => {
+  isNewsModalVisible.value = !isNewsModalVisible.value;
+};
+const closeNewsModal = () => {
+  isNewsModalVisible.value = false;
 };
 
 import { useIntersectionObserver } from "@vueuse/core";

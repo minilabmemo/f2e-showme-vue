@@ -1,6 +1,5 @@
 <template>
   <div
-    v-if="visible"
     class="bg-white p-8 md:p-10 fixed bottom-animate left-1/2 -translate-x-1/2 w-[90vw] md:w-[80vw] max-w-[1280px] h-[80vh] rounded-t-[80px]"
   >
     <div
@@ -13,9 +12,8 @@
   </div>
 </template>
 
-<script setup>
-import { ref, defineProps, defineEmits } from "vue";
-const props = defineProps(["visible"]);
+<script setup lang="ts">
+import { defineEmits } from "vue";
 const emit = defineEmits(["response"]);
 const closeModal = () => {
   emit("closeModal");

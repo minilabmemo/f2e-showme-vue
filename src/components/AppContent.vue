@@ -26,7 +26,7 @@
       id="policies"
       class="relative flex flex-col items-center justify-center py-[50px] md:block md:px-[63px] md:py-[177px]"
     >
-      <Title text="政策議題"></Title>
+      <AppTitle text="政策議題"></AppTitle>
 
       <div class="flex flex-col items-center p-10">
         <h2 class="text-[32px] font-semibold text-red-250 m-[22px]">
@@ -51,7 +51,7 @@
     </section>
 
     <section id="news" class="relative flex flex-col w-full justify-center">
-      <div class="self-end"><Title text="最新活動"></Title></div>
+      <div class="self-end"><AppTitle text="最新活動"></AppTitle></div>
       <div
         class="carousel-bg rotate-[15deg] overflow-hidden self-center w-[120vw]"
       >
@@ -90,7 +90,7 @@
       class="h-[1080px] flex flex-col justify-center px-[63px] py-[177px]"
       ref="targetService"
     >
-      <Title text="民眾服務信箱"></Title>
+      <AppTitle text="民眾服務信箱"></AppTitle>
 
       <div class="flex flex-col items-center py-[177px] relative">
         <div class="w-[1328px] h-[493px] absolute top-0 left-0">
@@ -208,9 +208,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-// import NewsModal from './NewsModal.vue'; // 這裡假設 NewsModal 組件的路徑正確
-// import Title from './Title.vue'; // 這裡假設 Title 組件的路徑正確
-
+import AppTitle from "@/components/AppTitle.vue";
 import AppSwiper from "@/components/AppSwiper.vue";
 import { newsData } from "@/utils/newsData.ts";
 import BG from "@/assets/images/BG_top.png";

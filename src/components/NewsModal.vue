@@ -25,51 +25,46 @@
           >
             <h2
               :class="`${
-                !matches ? 'text-[24px]' : 'w-2/3 text-[32px]'
+                matches ? 'text-[24px]' : 'w-2/3 text-[32px]'
               } text-blue-150 tracking-[10%] font-semibold`"
             >
               {{ item.title }}
             </h2>
             <div
               :class="`w-full flex relative ${
-                index % 2 === 0 ? '' : ' justify-end'
+                index % 2 === 0 ? '' : 'justify-end'
               }`"
             >
-              <div :class="descClass">
-                <!-- <img :src="item.src" alt="a1_photo" /> -->
-                <img v-if="!matches" :src="item.src" alt="a1_photo" />
-                <img v-else :src="item.src" alt="a1_photo" class="w-2/3" />
+              <div :class="`${matches ? '' : 'w-2/3'}`">
+                <img :src="`${item.src} `" alt="a1_photo" />
               </div>
 
-              <div v-if="matches" class=""></div>
-              <div v-else class="">
-                <template v-if="index % 2 === 0">
+              <!-- Vue 中的条件渲染 -->
+              <template v-if="!matches">
+                <div
+                  v-if="index % 2 === 0"
+                  class="w-1/3 bg-red-150 h-[3px] top-1/2 left-2/3 absolute"
+                >
                   <div
-                    class="w-1/3 bg-red-150 h-[3px] top-1/2 left-2/3 absolute"
-                  >
-                    <div
-                      class="bg-red-250 w-[20px] h-[20px] rounded-[50%] absolute right-0 translate-x-1/2 -translate-y-1/2"
-                    ></div>
-                  </div>
-                </template>
-                <template v-else>
-                  <div class="w-1/3 bg-red-150 h-[3px] top-1/2 left-0 absolute">
-                    <div
-                      class="bg-red-250 w-[20px] h-[20px] rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/2"
-                    ></div>
-                  </div>
-                </template>
-              </div>
+                    class="bg-red-250 w-[20px] h-[20px] rounded-[50%] absolute right-0 translate-x-1/2 -translate-y-1/2"
+                  ></div>
+                </div>
+                <div
+                  v-else
+                  class="w-1/3 bg-red-150 h-[3px] top-1/2 left-0 absolute"
+                >
+                  <div
+                    class="bg-red-250 w-[20px] h-[20px] rounded-[50%] absolute left-0 -translate-x-1/2 -translate-y-1/2"
+                  ></div>
+                </div>
+              </template>
             </div>
 
-            <div
-              v-if="!matches"
-              class="text-red-250 leading-[225%] font-medium"
-            >
-              {{ item.date }}
-            </div>
-            <div :class="descClass">
-              {{ item.desc }}
+            <div :class="`${matches ? '' : 'w-2/3'}`">
+              <div class="text-red-250 leading-[225%] font-medium">
+                {{ item.date }}
+              </div>
+              <div class="d">{{ item.desc }}</div>
             </div>
           </div>
         </div>
@@ -100,11 +95,10 @@ import { useMediaQuery } from "@vueuse/core";
 
 import { ref, onMounted } from "vue";
 
-//const matches = useMediaQuery("(max-width: 768px)");
 const matches = useMediaQuery("(max-width: 768px)");
-console.log("🚀 ~ matches:", matches.value);
+
 const lineRef = ref(null);
-const descClass = ref(!matches ? "" : "w-2/3");
+
 const handleScroll = () => {
   const modalElem = document.getElementById("newsModal");
   const sectionElement = document.getElementById("firstSection");

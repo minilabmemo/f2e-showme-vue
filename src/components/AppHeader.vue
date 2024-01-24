@@ -9,28 +9,10 @@
       </div>
       <nav class="m-auto hidden md:block">
         <ul class="flex justify-between text-2xl xl:text-[32px]">
-          <li class="group mx-5">
-            <a href="#about">關於薩卡</a>
-            <div
-              class="w-0 group-hover:w-full transition-[width] duration-1000 ease-in-out bg-red-100 h-[5px]"
-            ></div>
-          </li>
-          <li class="group mx-5">
-            <a href="#policies">政策議題</a>
-            <div
-              class="w-0 group-hover:w-full transition-[width] duration-1000 ease-in-out bg-red-100 h-[5px]"
-            ></div>
-          </li>
-          <li class="group mx-5">
-            <a href="#news">最新活動</a>
-            <div
-              class="w-0 group-hover:w-full transition-[width] duration-1000 ease-in-out bg-red-100 h-[5px]"
-            ></div>
-          </li>
-          <!-- <NavLink href={'#about'} text={'關於薩卡'} animate={true}></NavLink>
-            <NavLink href={'#policies'} text={'政策議題'} animate={true}></NavLink>
-            <NavLink href={'#news'} text={'最新活動'} animate={true}></NavLink>
-            <NavLink href={'#services'} text={'民眾服務'} animate={true}></NavLink> -->
+          <NavLink href="#about" text="關於薩卡" :animate="true"></NavLink>
+          <NavLink href="#policies" text="政策議題" :animate="true"></NavLink>
+          <NavLink href="#news" text="最新活動" :animate="true"></NavLink>
+          <NavLink href="#services" text="民眾服務" :animate="true"></NavLink>
         </ul>
       </nav>
       <div class="w-[250px] h-[30px] items-center xl:h-[40px] hidden md:flex">
@@ -55,6 +37,7 @@ export default defineComponent({
 });
 </script>
 <script setup lang="ts">
+import NavLink from "@/components/NavLink.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const hRef = ref(null);

@@ -90,11 +90,9 @@
 
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { newsData } from "@/utils/newsData.ts";
-import { useMediaQuery } from "@vueuse/core";
-
+import { newsData } from "@/utils/newsData";
 import { ref, onMounted } from "vue";
-
+import { useMediaQuery } from "@vueuse/core";
 const matches = useMediaQuery("(max-width: 768px)");
 
 const lineRef = ref(null);
@@ -142,7 +140,7 @@ const handleScroll = () => {
 
 onMounted(() => {
   const modalElem = document.getElementById("newsModal");
-  console.log("🚀 ~ onMounted ~ modalElem:", modalElem);
+
   if (modalElem) {
     modalElem.addEventListener("scroll", handleScroll);
   }

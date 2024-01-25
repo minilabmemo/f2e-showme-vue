@@ -88,11 +88,13 @@
     <section
       id="services"
       class="h-[1080px] flex flex-col justify-center px-[63px] py-[177px]"
-      ref="targetService"
     >
       <AppTitle text="民眾服務信箱"></AppTitle>
 
-      <div class="flex flex-col items-center py-[177px] relative">
+      <div
+        class="flex flex-col items-center py-[177px] relative"
+        ref="targetService"
+      >
         <div class="w-[1328px] h-[493px] absolute top-0 left-0">
           <img :src="plane_path" alt="plane_path" />
         </div>

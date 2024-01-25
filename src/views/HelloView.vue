@@ -9,11 +9,10 @@
 <script setup lang="ts">
 import HelloWorld from "@/components/HelloWorld.vue";
 import AppSwiper from "@/components/AppSwiper.vue";
-import { newsData } from "@/utils/newsData.ts";
+import { newsData } from "@/utils/newsData";
 import { ref } from "vue";
 const title = ref("");
 function updateTitle(newTitle: string) {
-  console.log("🚀 ~ updateTitle ~ newTitle:", newTitle);
   title.value = newTitle;
 }
 </script>

@@ -98,7 +98,7 @@
         </div>
         <div
           class="w-[226px] h-[111px] absolute plane top-0 left-0"
-          :class="{ fly: ttargetServiceIsVisible }"
+          :class="{ fly: targetServiceIsVisible }"
         >
           <img :src="plane" alt="plane" />
         </div>
@@ -210,7 +210,7 @@ import { ref } from "vue";
 
 import AppTitle from "@/components/sakka/AppTitle.vue";
 import AppSwiper from "@/components/AppSwiper.vue";
-import { newsData } from "@/utils/newsData.ts";
+import { newsData } from "@/utils/newsData";
 import BG from "@/assets/images/BG_top.png";
 import banner from "@/assets/images/banner_click.png";
 import title_bg from "@/assets/images/title_bg.svg";
@@ -220,7 +220,7 @@ import plane from "@/assets/images/plane.png";
 import plane_path from "@/assets/images/plane_path.svg";
 
 const title = ref(newsData[0].title);
-function updateTitle(newTitle) {
+function updateTitle(newTitle: string) {
   title.value = newTitle;
 }
 import AppModal from "@/components/AppModal.vue";
@@ -247,11 +247,11 @@ const closeNewsModal = () => {
 
 import { useIntersectionObserver } from "@vueuse/core";
 const targetService = ref(null);
-const ttargetServiceIsVisible = ref(false);
+const targetServiceIsVisible = ref(false);
 const { stop } = useIntersectionObserver(
   targetService,
   ([{ isIntersecting }], observerElement) => {
-    ttargetServiceIsVisible.value = isIntersecting;
+    targetServiceIsVisible.value = isIntersecting;
   }
 );
 </script>

@@ -19,7 +19,7 @@ const routes: Array<RouteRecordRaw> = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "meowsakka" */ "../views/AboutView.vue"),
+      import(/* webpackChunkName: "meowsakka" */ "../views/MeowView.vue"),
     meta: {
       hideNav: true, // 添加這個 meta 選項
     },

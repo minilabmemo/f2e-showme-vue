@@ -208,7 +208,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import AppTitle from "@/components/AppTitle.vue";
+import AppTitle from "@/components/sakka/AppTitle.vue";
 import AppSwiper from "@/components/AppSwiper.vue";
 import { newsData } from "@/utils/newsData.ts";
 import BG from "@/assets/images/BG_top.png";
@@ -224,7 +224,7 @@ function updateTitle(newTitle) {
   title.value = newTitle;
 }
 import AppModal from "@/components/AppModal.vue";
-import NewsModal from "@/components/NewsModal.vue";
+import NewsModal from "@/components/sakka/NewsModal.vue";
 const isAboutModalVisible = ref(false);
 const toggleAboutModal = () => {
   isAboutModalVisible.value = !isAboutModalVisible.value;

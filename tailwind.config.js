@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         inter: ["Inter", "system-ui", "Segoe UI"],
         noto: ["Noto Sans TC", "system-ui", "Segoe UI"],
+        ms: ["Mantou Sans", "system-ui", "Segoe UI"],
       },
       colors: {
         black: {

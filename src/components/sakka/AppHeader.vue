@@ -37,7 +37,7 @@ export default defineComponent({
 });
 </script>
 <script setup lang="ts">
-import NavLink from "@/components/NavLink.vue";
+import NavLink from "@/components/sakka/NavLink.vue";
 import { ref, onMounted, onUnmounted } from "vue";
 
 const hRef = ref(null);

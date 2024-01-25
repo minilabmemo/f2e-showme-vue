@@ -10,9 +10,9 @@
 
 <script lang="ts">
 import { defineComponent } from "vue";
-import AppContent from "@/components/AppContent.vue";
-import AppHeader from "@/components/AppHeader.vue";
-import AppFooter from "@/components/AppFooter.vue";
+import AppContent from "@/components/sakka/AppContent.vue";
+import AppHeader from "@/components/sakka/AppHeader.vue";
+import AppFooter from "@/components/sakka/AppFooter.vue";
 
 export default defineComponent({
   name: "AboutView",

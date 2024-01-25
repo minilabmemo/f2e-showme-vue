@@ -4,12 +4,13 @@
     <h1 class="text-red-500">Make me red</h1>
     <p>counter {{ counter }}</p>
     <button @click="plus">點選讓數字加一</button>
+    <HelloeCounter />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from "vue";
-
+import HelloeCounter from "@/components/HelloeCounter.vue";
 export default defineComponent({
   name: "HelloWorld",
   props: {
